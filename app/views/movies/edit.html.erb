@@ -2,4 +2,4 @@
   Edit movie <%= @movie.title %>
 </h1>
 
-<%= render partial: 'form', method: 'put', action: 'update' %>
+<%= render partial: 'form', locals: {method: "put", action: 'update'} %>
