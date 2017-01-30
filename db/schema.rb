@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129223523) do
+ActiveRecord::Schema.define(version: 20170130164223) do
 
   create_table "actors_movies", id: false, force: :cascade do |t|
     t.integer "movie_id"
     t.integer "actor_id"
+  end
+
+  create_table "classifications", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.integer  "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_classifications_on_movie_id"
+    t.index ["user_id"], name: "index_classifications_on_user_id"
   end
 
   create_table "movies", force: :cascade do |t|
